@@ -9,7 +9,7 @@ Make sure you remember to close your comment otherwise it will comment all your 
 :)
 """
 
-# Defining all main variables needed below. 
+# Defining all main variables needed below.
 
 win = str("Well done! You won!") 
 tie = str("\nYou tied! Try again.\n")
@@ -22,10 +22,10 @@ rpsList = ["Rock", "Paper", "Scissors"]
 #Only 5 activity variables for the time being.
 
 act1 = str("\nDo 10 starjumps!")
-act2 = str("Do a 30 second plank!")
-act3 = str("Do a 180kg deadlift! HA!!")
-act4 = str("Do 15 burpees!")
-act5 = str("Do 10 pushups!")
+act2 = str("\nDo a 30 second plank!")
+act3 = str("\nDo a 180kg deadlift! HA!!")
+act4 = str("\nDo 15 burpees!")
+act5 = str("\nDo 10 pushups!")
 
 #Activity function is called when the game is lost.
 
