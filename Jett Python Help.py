@@ -10,8 +10,8 @@ Make sure you remember to close your comment otherwise it will comment all your 
 """
 
 # Defining all main variables needed below.
-
-win = str("Well done! You won!") 
+game = True
+win = str("Well done! You won!\n") 
 tie = str("\nYou tied! Try again.\n")
 loss = str("\nUh oh, you lost! Prepare yourself!\n")
 
@@ -34,13 +34,21 @@ def actFunction():
 	actChoose = input("\nPick an activity - 0, 1: ")
 	if actChoose == "0":
 		print(actList[0])
+		yn()
 	if actChoose == "1":
 		print(actList[1])
+		yn()
 
+def yn():
+	usrPlayAgain = input("\nWould you like to play again? Y/N: ")
+	if usrPlayAgain == "Y":
+		pass
+	if usrPlayAgain == "N":
+		print("\nThanks for playing!")
 
 #This will be the main loop of the game below.
 
-while True:
+while game:
 	yourChoice = input("\nRock, Paper or Scissors?: ")
 	rpsComp = random.choice(rpsList)
 	print(f"\nYou chose {yourChoice}, the computer chose {rpsComp}.\n")
