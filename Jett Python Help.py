@@ -9,46 +9,49 @@ Make sure you remember to close your comment otherwise it will comment all your 
 :)
 """
 
-# Defining all main variables needed below.
+# Defining all main variables needed below. asdjajsdbjasdaj
 
-win = str("You won!") 
-loss = str("You lost! Pick your punishment. 1, 2, 3, 4, or 5? ")
+win = str("Well done! You won!") 
+tie = str("\nYou tied! Try again.\n")
+loss = str("\nUh oh, you lost! Prepare yourself!\n")
 
 #Lists work like this -> rpsList[0] = Rock rpsList[1] = Paper, so on.
+#Inputs pulled from this list below are case sensitive!
 rpsList = ["Rock", "Paper", "Scissors"]
 
 #Only 5 activity variables for the time being.
 
-act1 = str("Do 10 starjumps!")
+act1 = str("\nDo 10 starjumps!")
 act2 = str("Do a 30 second plank!")
 act3 = str("Do a 180kg deadlift! HA!!")
 act4 = str("Do 15 burpees!")
 act5 = str("Do 10 pushups!")
 
-def rpsMain():
-	rnum = str(random.randint(1,3))
-	try:
-		guess["r", "p", "s"] = input("Rock, Paper or Scissors? ")
-		if(rnum == guess):
+#Activity function is called when the game is lost.
+
+def actFunction():
+	actList = [act1, act2, act3, act4, act5]
+	actChoose = input("\nPick an activity - 0, 1: ")
+	if actChoose == "0":
+		print(actList[0])
+	if actChoose == "1"
+		print(actList[1])
+
+
+#This will be the main loop of the game below.
+
+while True:
+	yourChoice = input("\nRock, Paper or Scissors?: ")
+	rpsComp = random.choice(rpsList)
+	print(f"\nYou chose {yourChoice}, the computer chose {rpsComp}.\n")
+
+	if yourChoice == rpsComp:
+		print(tie)
+	elif yourChoice == "Rock":
+		if rpsComp == "Scissors":
 			print(win)
-		else:
+		else: 
 			print(loss)
-	except:
-		print("Invalid input! Try again!")
-#coreRPS()
-
-
-		
-
-#def computerRPS():
-#	rnum = str(random.randint(1,3))
-#	if(rnum == 1):
-#		print(r)
-#	elif(rnum == 2):
-#		print(p)
-#	elif(rnum == 3):
-#		print(s)
-
-#computerRPS()
-
-
+			actFunction()
+					
+	#elif
