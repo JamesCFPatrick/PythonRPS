@@ -34,7 +34,7 @@ def actFunction():
 	actChoose = input("\nPick an activity - 0, 1: ")
 	if actChoose == "0":
 		print(actList[0])
-	if actChoose == "1"
+	if actChoose == "1":
 		print(actList[1])
 
 
