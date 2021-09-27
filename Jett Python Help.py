@@ -9,7 +9,7 @@ Make sure you remember to close your comment otherwise it will comment all your 
 :)
 """
 
-# Defining all main variables needed below. asdjajsdbjasdaj
+# Defining all main variables needed below. 
 
 win = str("Well done! You won!") 
 tie = str("\nYou tied! Try again.\n")
