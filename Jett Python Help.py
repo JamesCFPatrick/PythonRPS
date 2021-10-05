@@ -101,7 +101,7 @@ def inputCheck():
 		if yourChoice in choices:
 			break
 		else:
-			print("\nInvalid input. Try again.")
+			print("\nInvalid input. Make sure it's upper case.")
 			continue
 
 #This will be the main loop of the game below.
