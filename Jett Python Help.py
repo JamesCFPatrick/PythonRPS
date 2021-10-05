@@ -11,6 +11,7 @@ Make sure you remember to close your comment otherwise it will comment all your 
 """
 
 # Defining all main variables needed below.
+
 win = str("\nWell done! You won!\n") 
 tie = str("\nYou tied! Try again.\n")
 loss = str("\nUh oh, you lost! Prepare yourself!\n")
@@ -20,7 +21,6 @@ loss = str("\nUh oh, you lost! Prepare yourself!\n")
 
 rpsList = ["Rock", "Paper", "Scissors"]
 actInputList = ["1", "2", "3", "4", "5", "6", "7"]
-ynList = ["Y", "N"]
 
 #7 win activities.
 
@@ -34,13 +34,13 @@ actw7 = str("\nDo 10 mountain climbers!")
 
 #7 loss activities.
 
-actl1 = str("\nDo 15 star jumps!")
-actl2 = str("\nDo 10 second plank!")
-actl3 = str("\nDo 10 lunges!")
-actl4 = str("\nDo 15 burpees!")
-actl5 = str("\nDo 10 pushups!")
-actl6 = str("\nDo a thing.")
-actl7 = str("\nDo 10 mountain climbers!")
+actl1 = str("\nDo 25 star jumps!")
+actl2 = str("\nDo 20 second plank!")
+actl3 = str("\nDo 20 lunges!")
+actl4 = str("\nDo 20 pushups!")
+actl5 = str("\nDo 20 crunches!")
+actl6 = str("\nDo a 30 second wall sit!")
+actl7 = str("\nDo 20 mountain climbers!")
 
 #Activity functions are called depending on win or loss.
 
@@ -58,6 +58,10 @@ def actWin():
 		print(actWinList[3])
 	if actChoose == "5":
 		print(actWinList[4])
+	if actChoose == "6":
+		print(actWinList[5])
+	if actChoose == "7":
+		print(actWinList[6])
 
 def actLoss():
 	global actLossList, actChoose
@@ -73,9 +77,9 @@ def actLoss():
 		print(actLossList[3])
 	if actChoose == "5":
 		print(actLossList[4])
-	if actChoose == "5":
-		print(actLossList[5])
 	if actChoose == "6":
+		print(actLossList[5])
+	if actChoose == "7":
 		print(actLossList[6])
 
 def actInputCheck():
@@ -100,25 +104,10 @@ def inputCheck():
 			print("\nInvalid input. Try again.")
 			continue
 
-def playAgain():
-	global inputPlayAgain
-	inputPlayAgain = input("\nDo you want to play again? Y/N: ")
-	try:
-		if inputPlayAgain[0] == "Y":
-			return True
-		elif inputPlayAgain[0] == "N":
-			return False
-		else:
-			print("Invalid input.")
-			return playAgain()
-	except:
-		print("Please enter valid input.")
-		return playAgain()
-
 #This will be the main loop of the game below.
 
 while True:
-	global yourChoice, inputPlayAgain
+	global yourChoice
 	inputCheck()
 	rpsComp = random.choice(rpsList)
 	print(f"\nYou chose {yourChoice}, the computer chose {rpsComp}.\n")
@@ -146,13 +135,11 @@ while True:
 		else:
 			print(loss)
 			actLoss()
+	
+	playAgain = input("\nDo you want to play again? Y/N: ")
 
-	playAgain()
-
-	"""
-	playAgain = input("\nDo you want to play again? Y/N: ")				
 	#This if statement checks if N is entered. Then it prints a goodbye message and uses the break statement to end the loop.
 	if playAgain == "N":
 		print("\nThanks for playing!\n")
 		break
-	"""
+	
