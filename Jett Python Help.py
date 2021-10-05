@@ -17,7 +17,10 @@ loss = str("\nUh oh, you lost! Prepare yourself!\n")
 
 #Lists work like this -> rpsList[0] = Rock rpsList[1] = Paper, so on.
 #Inputs pulled from this list below are case sensitive!
+
 rpsList = ["Rock", "Paper", "Scissors"]
+actInputList = ["1", "2", "3", "4", "5", "6", "7"]
+ynList = ["Y", "N"]
 
 #7 win activities.
 
@@ -39,12 +42,12 @@ actl5 = str("\nDo 10 pushups!")
 actl6 = str("\nDo a thing.")
 actl7 = str("\nDo 10 mountain climbers!")
 
-
 #Activity functions are called depending on win or loss.
 
 def actWin():
-	actWinList = [actw1, actw2, actw3, actw4, actw5]
-	actChoose = input("\nPick an activity - 1, 2, 3, 4, 5, 6 or 7: ")
+	global actWinList, actChoose
+	actWinList = [actw1, actw2, actw3, actw4, actw5, actw6, actw7]
+	actInputCheck()
 	if actChoose == "1":
 		print(actWinList[0])
 	if actChoose == "2":
@@ -57,8 +60,9 @@ def actWin():
 		print(actWinList[4])
 
 def actLoss():
+	global actLossList, actChoose
 	actLossList = [actl1, actl2, actl3, actl4, actl5, actl6, actl7]
-	actChoose = input("\nPick an activity - 1, 2, 3, 4, 5, 6 or 7: ")
+	actInputCheck()
 	if actChoose == "1":
 		print(actLossList[0])
 	if actChoose == "2":
@@ -74,17 +78,48 @@ def actLoss():
 	if actChoose == "6":
 		print(actLossList[6])
 
+def actInputCheck():
+	global actChoose, actInputList
+	actChoices = actInputList
+	while True:
+		actChoose = input(str("\nPick an activity - 1, 2, 3, 4, 5, 6 or 7: "))
+		if actChoose in actChoices:
+			break
+		else:
+			print("\nInvalid input. Numbers only!")
+			continue
+
+def inputCheck():
+	global yourChoice
+	choices = rpsList
+	while True:
+		yourChoice = input("\nRock, Paper or Scissors?: ")
+		if yourChoice in choices:
+			break
+		else:
+			print("\nInvalid input. Try again.")
+			continue
+
+def playAgain():
+	global inputPlayAgain
+	inputPlayAgain = input("\nDo you want to play again? Y/N: ")
+	try:
+		if inputPlayAgain[0] == "Y":
+			return True
+		elif inputPlayAgain[0] == "N":
+			return False
+		else:
+			print("Invalid input.")
+			return playAgain()
+	except:
+		print("Please enter valid input.")
+		return playAgain()
+
 #This will be the main loop of the game below.
 
 while True:
-	#yourChoice = input("\nRock, Paper or Scissors?: ")
-	try:
-		yourChoice = str(input("\nRock, Paper or Scissors?: "))
-	except ValueError:
-		print("Invalid input.")
-		continue
-	else:
-		break
+	global yourChoice, inputPlayAgain
+	inputCheck()
 	rpsComp = random.choice(rpsList)
 	print(f"\nYou chose {yourChoice}, the computer chose {rpsComp}.\n")
 	if yourChoice == rpsComp:
@@ -112,8 +147,12 @@ while True:
 			print(loss)
 			actLoss()
 
+	playAgain()
+
+	"""
 	playAgain = input("\nDo you want to play again? Y/N: ")				
 	#This if statement checks if N is entered. Then it prints a goodbye message and uses the break statement to end the loop.
 	if playAgain == "N":
 		print("\nThanks for playing!\n")
 		break
+	"""
